@@ -5,25 +5,37 @@
 </head>
 
 <body>
-    <h1>To Do List</h1>
+    <h1>To Do List</h1>  
         
         <form method = "post" action = "/">
-            
-            <h3>Add Stuff To Do</h3>
-                <input type = "text"  name = "addStuff">
-                <input type = "submit" value = "Ugh! More Stuff!">
+            <input type = "text" id = "stuff" name = "addStuff">
+            <input type = "submit" value = "Ugh! More Stuff!">
         </form>
-            
-            
-        
-                
-<ul>
-    <h3>Completed</h3>   
     
-    {{#word}}
-        <li>{{rad}}</li>
-              
-    {{/word}}
+    <h3>Add Stuff To Do</h3>                   
+<ul>  
+    {{#todos}}
+    {{^done}}
+    <form method = "post" action = "/{{thing}}">
+        <li>
+        <input type = "submit" value = "Ugh!" name = "Ugh" >
+        {{stuff}}
+        </li>
+    </form>
+    {{/done}}   
+    {{/todos}}
+</ul>
+
+<ul>
+    <h3>Dunzo</h3>   
+    
+    {{#todos}}
+    {{#done}}
+        <li>
+        {{stuff}}
+        </li>
+    {{/done}}       
+    {{/todos}}
     
 </ul>
 
